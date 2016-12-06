@@ -3,7 +3,18 @@ function getRand(min, max) {
 }
 var numberOfFaces = 5;
 
-function generateFaces() {
+var newCount = 0;
+
+function wrapper() {
+    newCount = generateFaces(newCount);
+}
+
+function generateFaces(myCount) {
+    (myCount ++); //=1
+    if(myCount == 4)
+    {
+        window.location.href("Popup.html");
+    }
     var theRightSide = document.getElementById("rightSide");
     while (theRightSide.firstChild) {
         theRightSide.removeChild(theRightSide.firstChild);
@@ -31,6 +42,7 @@ function generateFaces() {
     theLeftSide.lastChild.onclick = function nextLevel(event){
         event.stopPropagation();
         numberOfFaces += 5;
-        generateFaces();
+        generateFaces(myCount);
     };
+    return myCount;
 }
