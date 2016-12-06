@@ -1,101 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-
     <meta charset="UTF-8">
     <title>Matching Game</title>
-
-    <style>
-        img {
-            position: absolute;
-        }
-        div {
-            position:absolute;
-            width: 500px;
-            height: 500px;
-        }
-        #rightSide {
-            left: 625px;
-            border-left: 5px solid #000000;
-            height: 500px;
-        }
-
-        /*body {
-
-            background-image: url("https://theorymyculture.files.wordpress.com/2007/06/cash.png");
-            background-color: #26851b;
-        }*/
-        form {
-            background: rgb(251, 251, 255);
-            padding:1em;
-            border:5px solid #000000;
-            margin:1em;
-            width:25em;
-            alignment: center;
-        }
-
-
-
-
-
-    </style>
-    <script>
-        //625
-        function getRand(min, max) {
-            return Math.floor((Math.random()*(max-min)))+min;
-        }
-        var numberOfFaces = 5;
-        function generateFaces() {
-            var theRightSide = document.getElementById("rightSide");
-            while (theRightSide.firstChild) {
-                theRightSide.removeChild(theRightSide.firstChild);
-            }
-            var theBody = document.getElementsByTagName("body")[0];
-            var theLeftSide = document.getElementById("leftSide");
-            while (theLeftSide.firstChild) {
-                theLeftSide.removeChild(theLeftSide.firstChild);
-            }
-
-            for (var i = 0 ; i < numberOfFaces ; i++) {
-
-                var theImg = document.createElement("img");
-                theImg.src = "http://emojipedia-us.s3.amazonaws.com/cache/eb/ee/ebeed1027109319e804af2efaa3e5c67.png";
-                theImg.style.top = getRand(0, 400)+'px';
-                theImg.style.left = getRand(0, 400)+'px';
-                theLeftSide.appendChild(theImg);
-            }
-            var leftSideImages = theLeftSide.cloneNode(true);
-            leftSideImages.removeChild(leftSideImages.lastChild);
-            theRightSide.appendChild(leftSideImages);
-            theBody.onclick = function gameOver() {
-                alert("Game Over!");
-                theBody.onclick = null;
-                theLeftSide.lastChild.onclick = null;
-            };
-            theLeftSide.lastChild.onclick = function nextLevel(event){
-                event.stopPropagation();
-                numberOfFaces += 5;
-                generateFaces();
-            };
-        }
-    </script>
+    <script src="CodeBug.js"></script>
+    <link rel="stylesheet" type="text/css" href="CodeBug.css">
 </head>
+
 <body onload="generateFaces()" >
 
-<audio autoplay loop>
-    <source src="mario%20theme%20song.mp3" type="audio/mpeg">
-</audio>
+    <audio autoplay loop>
+        <source src="relax.mp3" type="audio/mpeg">
+    </audio>
 
-<form align="center">
-<h1>Matching Game</h1>
-<p>Click on the extra bag of money on the left.</p>
-<button onclick="" style="height: 25px; width: 100px;">TRY AGAIN</button>
-<div id="leftSide"></div>
-<div id="rightSide"></div>
-</form>
-
-<!--<audio src=""
-       preload="auto"></audio>-->
-
+    <form>
+        <h1>Matching Game</h1>
+        <p>Click on the extra bag of money on the left.</p>
+        <button onclick="javascript:window.location.href='Popup.html';
+        return false;" style="height: 25px; width: 100px;">TRY AGAIN
+        </button>
+        <div id="leftSide"></div>
+        <div id="rightSide"></div>
+    </form>
 </body>
 </html>
