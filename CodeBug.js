@@ -7,14 +7,15 @@ var newCount = 0;
 
 function wrapper() {
     newCount = generateFaces(newCount);
+    //(myCount ++); //=1
+    if(newCount == 3)
+    {
+        window.location.href='Popup.html'; return false;
+    }
 }
 
 function generateFaces(myCount) {
-    (myCount ++); //=1
-    if(myCount == 4)
-    {
-        window.location.href("Popup.html");
-    }
+    myCount++;
     var theRightSide = document.getElementById("rightSide");
     while (theRightSide.firstChild) {
         theRightSide.removeChild(theRightSide.firstChild);
@@ -42,7 +43,8 @@ function generateFaces(myCount) {
     theLeftSide.lastChild.onclick = function nextLevel(event){
         event.stopPropagation();
         numberOfFaces += 5;
-        generateFaces(myCount);
+        //generateFaces(myCount);
+        wrapper();
     };
     return myCount;
 }
