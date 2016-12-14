@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Matching Game</title>
+    <script src="popup.js"></script>
+    <link rel="stylesheet" type="text/css" href="popup.css">
+</head>
+
+<body onload="generateFaces()" >
+
+<audio autoplay loop>
+    <source src="relax.mp3" type="audio/mpeg">
+</audio>
+
+<form>
+    <h1>Matching Game</h1>
+    <p>Click on the extra bag of money on the left.</p>
+    <button onclick="javascript:window.location.href='Popup.html'; return false;" style="height: 25px; width: 100px;">TRY AGAIN</button>
+    <div id="leftSide"></div>
+    <div id="rightSide"></div>
+</form>
+</body>
+</html>
